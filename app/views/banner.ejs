@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="text-center mt-3">Food Banner</h1>
+  <!-- data-masonry='{"percentPosition": true }' gives card that is colledted over one another   -->
+  <div class="row my-3">
+    <% foods.forEach(food => { %>
+    <div class="col-4 my-3">
+      <div class="card">
+        <img src="<%= food.image %>" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">
+            <b
+              >Food: <%= food.name %><br />
+              Price: <%= food.price %>
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>

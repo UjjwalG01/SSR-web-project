@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 mt-3">
+      <h3 class="text-center">Add Food</h3>
+      <form action="/food" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            id="food-name"
+            placeholder="Chicken Curry"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type="text"
+            class="form-control"
+            name="price"
+            id="price"
+            placeholder="450"
+          />
+        </div>
+
+        <label for="image" class="form-label">Category</label>
+        <select class="form-control" name="category">
+          <% categories.forEach(category => { %>
+          <option value="<%= category.id %>"><%= category.category %></option>
+          <% }) %>
+        </select>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input type="file" name="image" class="form-control" id="image" />
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  </div>
+</div>

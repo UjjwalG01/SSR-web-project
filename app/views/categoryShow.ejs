@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-9 mt-3 text-center">
+      <h3 class="text-center">Food Category</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">S.N</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% category.forEach((food, index)=>{ %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= food.category %></td>
+            <td>
+              <a
+                class="btn w-50 btn-<%= food.status === 'active' ? 'primary' : 'info' %>"
+                href="/food/category/<%= food.id %>/toggle"
+                ><%= food.status %></a
+              >
+            </td>
+            <td>
+              <a class="btn btn-info" href="/food/category/<%= food.id %>/edit"
+                >Edit</a
+              >
+              <a
+                class="btn btn-danger"
+                href="/food/category/<%= food.id %>/delete"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

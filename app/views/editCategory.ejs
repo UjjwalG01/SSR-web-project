@@ -1,0 +1,42 @@
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-9 mt-3 text-center"></div>
+        <div class="col-9 mt-3">
+          <form
+            action="/food/category/<%= categories.id %>/update"
+            method="POST"
+          >
+            <h2><u>Add Category</u></h2>
+            <br />
+            <div class="mb-3">
+              <label for="category" class="form-label">Category Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="category"
+                id="category"
+                placeholder="Chinese Food"
+                value="<%= categories.category %>"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="status" class="form-label">Status</label>
+              <select
+                class="form-control"
+                name="status"
+                id="status"
+                placeholder="Status"
+              >
+                <option value="active" <%= categories.status == 'active' ? "selected" : "" %> >Active</option>
+                <option value="inactive" <%= categories.status == 'inactive' ? "selected" : "" %> >Inactive</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Update Category
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>

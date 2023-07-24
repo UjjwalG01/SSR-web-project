@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 mt-3">
+      <h3 class="text-center">Food List</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">S.N</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% foods.forEach((food, index)=>{ %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= food.name %></td>
+            <td><%= food.price %></td>
+            <td><%= food.category?.category %></td>
+            <td><img src="<%= food.image %>" width="60" /></td>
+            <td>
+              <a class="btn btn-info" href="/food/<%= food.id %>/edit">Edit</a>
+              <a class="btn btn-danger" href="/food/<%= food.id %>/delete"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

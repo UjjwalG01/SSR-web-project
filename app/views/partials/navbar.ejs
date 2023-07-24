@@ -1,0 +1,57 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <b><a class="navbar-brand" href="/">MY FOOD - <%= username%></a></b>
+
+    <% if(isLogin){ %>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/food/create">Add Food</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/food">View Food</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/food/category">Add Category</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/food/show-category">Show Category</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/food/banner">Add Banner</a>
+      </li>
+    </ul>
+    <% } %>
+
+    <form action="/" class="d-flex" role="search">
+      <input
+        class="form-control me-2"
+        type="search"
+        name="q"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div>
+      <% if(isLogin){ %>
+      <a class="btn btn-outline-danger" type="submit" href="/logout">Logout</a>
+      <% }else{ %>
+      <a class="btn btn-outline-success" type="submit" href="/login">Login</a>
+      <% } %>
+      <!-- If we want to logout through post method -->
+      <!-- <form action="/logout" method="post">
+        <button class="btn btn-outline-danger" type="submit">Logout</button>
+      </form> -->
+    </div>
+  </div>
+</nav>
+
+<% if(flash?.success){ %>
+<div class="alert alert-success" role="alert"><%= flash?.success %></div>
+
+<% } %> <% if(flash?.error){ %>
+<div class="alert alert-danger" role="alert"><%= flash?.error %></div>
+<% } %>

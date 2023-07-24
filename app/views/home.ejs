@@ -1,0 +1,68 @@
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <% banner.map((ban, index) => { %>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="<%= index %>"
+      aria-current="<%= index === 0 ? 'true' : 'false' %>"
+      class="<%= index === 0 ? 'active' : '' %>"
+      aria-label="Slide 3"
+    ></button>
+    <% }) %>
+  </div>
+
+  <div class="carousel-inner" style="height: 93vh">
+    <% banner.forEach((ban, index) => { %>
+    <div class="carousel-item <%= index=== 0 ? 'active' : index %>">
+      <img src="<%= ban.image %>" class="d-block w-100" alt="<%= ban.name %>" />
+    </div>
+    <% }) %>
+  </div>
+
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- carousel ends here -->
+
+<div class="container">
+  <h1 class="text-center mt-3">Our Menu</h1>
+  <!-- data-masonry='{"percentPosition": true }' -->
+  <div class="row my-3">
+    <% foods.map(food => { %>
+    <div class="col-4 my-3">
+      <div class="card h-100">
+        <img
+          src="<%= food.image %>"
+          height="250"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= food.name %></b><br /><b>Price: </b><%= food.price %>
+            <br /><b>Category: </b><%= food.category?.category ?? "Null" %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
