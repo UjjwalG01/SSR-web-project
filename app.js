@@ -47,9 +47,7 @@ app.use((req, res, next) => {
 });
 
 app.use(require("./app/routes/client"));
-
 const auth = require("./app/middleware/authMiddleware");
-
 app.use(auth);
 app.use("/food", require("./app/routes/food"));
 app.use(require("./app/routes/category"));
